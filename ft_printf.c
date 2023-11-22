@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:25:39 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/22 16:46:25 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/23 00:29:45 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	ft_printf(const char *txt, ...)
 		if (*txt == '%')
 		{
 			temp = ft_aplflg((txt + 1), argv);
-			txt += ft_params_counter((txt + 1), "cspdiuxX\%") + 1;
+			txt += ft_params_counter((txt + 1), "cspdiuxX\%") + 2;
 			count += temp;
 		}
 		else
