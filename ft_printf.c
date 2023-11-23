@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:25:39 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/23 12:56:53 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:41:27 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,47 +94,3 @@ int	ft_printf(const char *txt, ...)
 	va_end(argv);
 	return (count);
 }
-
-// #include <stdio.h>
-// int main() {
-//     // Test each format specifier
-//     char c = 'A';
-//     char *str = "Hello, World!";
-//     int num = 42;
-//     unsigned int uNum = 123;
-//     // void *ptr = (void *)0x56b;
-
-//     // Test %c
-//     printf("Test %%c: %c\n%5c\n%-5c\n", c, c, c);
-//     ft_printf("Test %%c: %c\n%c\n%c\n", c, c, c);
-
-//     // Test %s
-//     printf("Test %%s: %s\n", str);
-//     ft_printf("Test %%s: %s\n", NULL);
-
-//     // Test %p
-//     printf("Test %%p: %p\n", NULL);
-//     ft_printf("Test %%p: %p\n", NULL);
-
-//     // Test %d and %i
-//     printf("Test %%d and %%i: %d, %i\n", num, num);
-//     ft_printf("Test %%d and %%i: %d, %i\n", num, num);
-
-//     // Test %u
-//     printf("Test %%u: %u\n", uNum);
-//     ft_printf("Test %%u: %u\n", uNum);
-
-//     // Test %x
-//     printf("Test %%x: %x\n", uNum);
-//     ft_printf("Test %%x: %x\n", uNum);
-
-//     // Test %X
-//     printf(" %X %X %lX %lX %lX %X %X\n", INT_MAX, INT_MIN, 9223372036854775807L, LONG_MIN, ULONG_MAX, 0, -42);
-//     ft_printf(" %X %X %X %X %X %X %X\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
-
-//     // Test %%
-//     printf("Test %%%%: %%\n");
-//     ft_printf("Test %%%%: %%\n");
-
-//     return 0;
-// }
