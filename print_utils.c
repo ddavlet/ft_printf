@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:32 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/23 11:25:50 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:00:26 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 	int	count;
 
 	count = 0;
+	if (!s)
+		return (0);
 	while (s[count])
 		count++;
 	return (count);
@@ -70,6 +72,11 @@ int	ft_putnbr_fd(int n, int fd)
 
 int	ft_putstr_fd(char *s, int fd)
 {
+	if (!s)
+	{
+		write(fd, "(null)", 6);
+		return (6);
+	}
 	write(fd, s, ft_strlen(s));
 	return (ft_strlen(s));
 }

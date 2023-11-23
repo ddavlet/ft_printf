@@ -6,11 +6,18 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:25:39 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/23 11:27:27 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:56:53 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_print_void(size_t num)
+{
+	if (!num)
+		return (ft_putstr_fd("(nil)", 1));
+	return (ft_putstr_fd("0x", 1) + ft_putvoid(num, 1));
+}
 
 int	ft_print_param(char format, va_list argv)
 {
@@ -25,8 +32,7 @@ int	ft_print_param(char format, va_list argv)
 	else if (format == 'c')
 		return (ft_putchar_fd(va_arg(argv, int), 1));
 	else if (format == 'p')
-		return (ft_putstr_fd("0x", 1)
-			+ ft_putnbr_hex_fd(va_arg(argv, unsigned int), 1));
+		return (ft_print_void(va_arg(argv, size_t)));
 	else if (format == 'x')
 		return (ft_putnbr_hex_fd(va_arg(argv, unsigned int), 1));
 	else if (format == 'X')
@@ -51,24 +57,6 @@ char	ft_params(const char *txt, char *set)
 	}
 	return (0);
 }
-
-// unsigned int	ft_params_counter(const char *txt, char *set)
-// {
-// 	int		i;
-
-// 	i = 0;
-// 	while (txt[i])
-// 	{
-// 		while (*set)
-// 		{
-// 			if (*set == txt[i])
-// 				return (i);
-// 			set++;
-// 		}
-// 		i++;
-// 	}
-// 	return (i);
-// }
 
 unsigned int	ft_aplflg(const char *txt, va_list argv)
 {
@@ -114,7 +102,7 @@ int	ft_printf(const char *txt, ...)
 //     char *str = "Hello, World!";
 //     int num = 42;
 //     unsigned int uNum = 123;
-//     void *ptr = (void *)0x12345678;
+//     // void *ptr = (void *)0x56b;
 
 //     // Test %c
 //     printf("Test %%c: %c\n%5c\n%-5c\n", c, c, c);
@@ -122,11 +110,11 @@ int	ft_printf(const char *txt, ...)
 
 //     // Test %s
 //     printf("Test %%s: %s\n", str);
-//     ft_printf("Test %%s: %s\n", str);
+//     ft_printf("Test %%s: %s\n", NULL);
 
 //     // Test %p
-//     printf("Test %%p: %p\n", ptr);
-//     ft_printf("Test %%p: %p\n", ptr);
+//     printf("Test %%p: %p\n", NULL);
+//     ft_printf("Test %%p: %p\n", NULL);
 
 //     // Test %d and %i
 //     printf("Test %%d and %%i: %d, %i\n", num, num);
@@ -141,8 +129,8 @@ int	ft_printf(const char *txt, ...)
 //     ft_printf("Test %%x: %x\n", uNum);
 
 //     // Test %X
-//     printf("Test %%X: %X\n", uNum);
-//     ft_printf("Test %%X: %X\n", uNum);
+//     printf(" %X %X %lX %lX %lX %X %X\n", INT_MAX, INT_MIN, 9223372036854775807L, LONG_MIN, ULONG_MAX, 0, -42);
+//     ft_printf(" %X %X %X %X %X %X %X\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
 
 //     // Test %%
 //     printf("Test %%%%: %%\n");

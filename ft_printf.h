@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:36 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/23 11:25:01 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:55:42 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int		ft_isdigit(int c);
 
 int		ft_putnbr_hex_fd(unsigned int data, int fd);
 
-int		ft_putnbr_hexcap_fd(unsigned int data, int fd);
+int		ft_putnbr_hexcap_fd(unsigned int num, int fd);
 
-char	*ft_strdup(const char *s);
+int		ft_putvoid(size_t ptr, int fd);
 
 #endif
