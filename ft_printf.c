@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:25:39 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/23 00:29:45 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:27:27 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,23 @@ char	ft_params(const char *txt, char *set)
 	return (0);
 }
 
-unsigned int	ft_params_counter(const char *txt, char *set)
-{
-	int		i;
+// unsigned int	ft_params_counter(const char *txt, char *set)
+// {
+// 	int		i;
 
-	i = 0;
-	while (txt[i])
-	{
-		while (*set)
-		{
-			if (*set == txt[i])
-				return (i);
-			set++;
-		}
-		i++;
-	}
-	return (0);
-}
+// 	i = 0;
+// 	while (txt[i])
+// 	{
+// 		while (*set)
+// 		{
+// 			if (*set == txt[i])
+// 				return (i);
+// 			set++;
+// 		}
+// 		i++;
+// 	}
+// 	return (i);
+// }
 
 unsigned int	ft_aplflg(const char *txt, va_list argv)
 {
@@ -77,7 +77,6 @@ unsigned int	ft_aplflg(const char *txt, va_list argv)
 	specif = ft_params(txt, "cspdiuxX\%");
 	return (ft_print_param(specif, argv));
 }
-
 
 int	ft_printf(const char *txt, ...)
 {
@@ -94,7 +93,7 @@ int	ft_printf(const char *txt, ...)
 		if (*txt == '%')
 		{
 			temp = ft_aplflg((txt + 1), argv);
-			txt += ft_params_counter((txt + 1), "cspdiuxX\%") + 2;
+			txt += 2;
 			count += temp;
 		}
 		else
@@ -108,46 +107,46 @@ int	ft_printf(const char *txt, ...)
 	return (count);
 }
 
-#include <stdio.h>
-int main() {
-    // Test each format specifier
-    char c = 'A';
-    char *str = "Hello, World!";
-    int num = 42;
-    unsigned int uNum = 123;
-    void *ptr = (void *)0x12345678;
+// #include <stdio.h>
+// int main() {
+//     // Test each format specifier
+//     char c = 'A';
+//     char *str = "Hello, World!";
+//     int num = 42;
+//     unsigned int uNum = 123;
+//     void *ptr = (void *)0x12345678;
 
-    // Test %c
-    printf("Test %%c: %c\n%5c\n%-5c\n", c, c, c);
-    ft_printf("Test %%c: %c\n%5c\n%-5c\n", c, c, c);
+//     // Test %c
+//     printf("Test %%c: %c\n%5c\n%-5c\n", c, c, c);
+//     ft_printf("Test %%c: %c\n%c\n%c\n", c, c, c);
 
-    // Test %s
-    printf("Test %%s: %s\n", str);
-    ft_printf("Test %%s: %s\n", str);
+//     // Test %s
+//     printf("Test %%s: %s\n", str);
+//     ft_printf("Test %%s: %s\n", str);
 
-    // Test %p
-    printf("Test %%p: %p\n", ptr);
-    ft_printf("Test %%p: %p\n", ptr);
+//     // Test %p
+//     printf("Test %%p: %p\n", ptr);
+//     ft_printf("Test %%p: %p\n", ptr);
 
-    // Test %d and %i
-    printf("Test %%d and %%i: %d, %i\n", num, num);
-    ft_printf("Test %%d and %%i: %d, %i\n", num, num);
+//     // Test %d and %i
+//     printf("Test %%d and %%i: %d, %i\n", num, num);
+//     ft_printf("Test %%d and %%i: %d, %i\n", num, num);
 
-    // Test %u
-    printf("Test %%u: %u\n", uNum);
-    ft_printf("Test %%u: %u\n", uNum);
+//     // Test %u
+//     printf("Test %%u: %u\n", uNum);
+//     ft_printf("Test %%u: %u\n", uNum);
 
-    // Test %x
-    printf("Test %%x: %x\n", uNum);
-    ft_printf("Test %%x: %x\n", uNum);
+//     // Test %x
+//     printf("Test %%x: %x\n", uNum);
+//     ft_printf("Test %%x: %x\n", uNum);
 
-    // Test %X
-    printf("Test %%X: %X\n", uNum);
-    ft_printf("Test %%X: %X\n", uNum);
+//     // Test %X
+//     printf("Test %%X: %X\n", uNum);
+//     ft_printf("Test %%X: %X\n", uNum);
 
-    // Test %%
-    printf("Test %%%%: %%\n");
-    ft_printf("Test %%%%: %%\n");
+//     // Test %%
+//     printf("Test %%%%: %%\n");
+//     ft_printf("Test %%%%: %%\n");
 
-    return 0;
-}
+//     return 0;
+// }

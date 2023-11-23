@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:36 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/22 15:58:26 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:25:01 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include "libft/libft.h"
 
 int		ft_printf(const char *txt, ...);
 
