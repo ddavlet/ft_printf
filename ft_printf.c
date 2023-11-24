@@ -6,20 +6,20 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:25:39 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/23 14:41:27 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/11/24 14:06:58 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_void(size_t num)
+static int	ft_print_void(size_t num)
 {
 	if (!num)
 		return (ft_putstr_fd("(nil)", 1));
 	return (ft_putstr_fd("0x", 1) + ft_putvoid(num, 1));
 }
 
-int	ft_print_param(char format, va_list argv)
+static int	ft_print_param(char format, va_list argv)
 {
 	if (format == 'i' || format == 'd')
 		return (ft_putnbr_fd(va_arg(argv, int), 1));
@@ -40,7 +40,7 @@ int	ft_print_param(char format, va_list argv)
 	return (0);
 }
 
-char	ft_params(const char *txt, char *set)
+static char	ft_params(const char *txt, char *set)
 {
 	int		i;
 
@@ -58,7 +58,7 @@ char	ft_params(const char *txt, char *set)
 	return (0);
 }
 
-unsigned int	ft_aplflg(const char *txt, va_list argv)
+static unsigned int	ft_aplflg(const char *txt, va_list argv)
 {
 	char	specif;
 
@@ -73,7 +73,7 @@ int	ft_printf(const char *txt, ...)
 	va_list			argv;
 
 	if (!txt)
-		return (0);
+		return (-1);
 	va_start(argv, txt);
 	count = 0;
 	while (*txt)
