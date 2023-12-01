@@ -5,9 +5,9 @@
 
 int	main()
 {
-	char *ptr;
+	// char *ptr;
 
-	ptr = malloc (2);
+	// ptr = malloc (2);
 	ft_printf("hello\n\n");
 	printf ("%c", 48);
 }

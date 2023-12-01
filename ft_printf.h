@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:36 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/30 19:12:28 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/12/01 10:15:07 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ char	*chr_to_str(int c);
 
 void	ft_charzero(void *s, unsigned long n);
 
-char	*int_prms_lgc(int	*params, char *arg, int format);
+char	*int_prms_lgc(unsigned int	*params, char *arg, int format);
 
 #endif

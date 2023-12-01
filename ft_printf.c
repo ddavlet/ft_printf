@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:25:39 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/30 19:21:59 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/12/01 10:18:11 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char	*ft_print_void(unsigned long num, unsigned int *params)
 				ft_itoa_hex(num, 'a'), 0));
 }
 
-char	*return_trsfm(int	*params, char *arg, char *temp)
+char	*return_trsfm(unsigned int	*params, char *arg, char *temp)
 {
 	unsigned long	i;
 
@@ -93,7 +93,7 @@ char	*return_trsfm(int	*params, char *arg, char *temp)
 	return (temp);
 }
 
-char	*return_add_tobegin(int	*params, char *arg, char *temp)
+char	*return_add_tobegin(unsigned int	*params, char *arg, char *temp)
 {
 	unsigned long	i;
 
@@ -127,7 +127,7 @@ char	*int_prms_lgc(unsigned int	*params, char *arg, int format)
 	return (arg);
 }
 
-char *ft_print_param(char format, va_list argv, int *params)
+char *ft_print_param(char format, va_list argv, unsigned int *params)
 {
 	//test for NULLS arg
 	if (format == 'i' || format == 'd')
@@ -156,7 +156,7 @@ unsigned int	ft_join_arg(const char *txt, va_list argv, char **to_print)
 	int				i;
 
 	i = 0;
-	params = (int *)malloc(sizeof(int) * 4);
+	params = (unsigned int *)malloc(sizeof(int) * 4);
 	if (!params)
 		return (0);
 	ft_bzero(params, 4);
@@ -198,6 +198,7 @@ int	ft_printf(const char *txt, ...)
 		return (-1);
 	va_start(argv, txt);
 	count = 0;
+	i = 0;
 	while (txt[i])
 	{
 		if (txt[i] == '%')
