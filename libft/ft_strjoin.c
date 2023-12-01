@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 13:30:18 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/30 19:16:12 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:04:02 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ char	*ft_strjoin(char *s1, char *s2)
 	ptr = (char *)malloc((j + 1) * sizeof(char));
 	if (!ptr)
 		return (0);
-	while (*s1)
-		ptr[i++] = *s1++;
+	while (s1[i])
+	{
+		ptr[i] = s1[i];
+		i++;
+	}
 	free(s1);
 	while (*s2)
 		ptr[i++] = *s2++;

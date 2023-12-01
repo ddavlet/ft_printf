@@ -1,25 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   bonus_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 12:35:59 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/12/01 12:19:27 by ddavlety         ###   ########.fr       */
+/*   Created: 2023/11/30 14:27:22 by ddavlety          #+#    #+#             */
+/*   Updated: 2023/12/01 13:58:06 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+char	*chr_to_str(int c)
 {
-	int	count;
+	char	*ptr;
 
-	count = 0;
-	if (!s)
+	ptr = (char *)malloc(sizeof(char) * 2);
+	if (!ptr)
 		return (0);
-	while (s[count])
-		count++;
-	return (count);
+	ptr[0] = (char)c;
+	ptr [1] = '\0';
+	return (ptr);
+}
+
+void	ft_charzero(void *s, unsigned long n)
+{
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *)s;
+	while (n != 0)
+	{
+		n--;
+		ptr[n] = '0';
+	}
+}
+
+unsigned int	*initialize_int(unsigned int *ptr, int i)
+{
+	while (i != 0)
+	{
+		i--;
+		ptr[i] = 0;
+	}
+	return (ptr);
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_bonus.c                                      :+:      :+:    :+:   */
+/*   itoa_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 14:27:22 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/11/30 19:14:21 by ddavlety         ###   ########.fr       */
+/*   Created: 2023/12/01 13:22:47 by ddavlety          #+#    #+#             */
+/*   Updated: 2023/12/01 14:10:55 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_counter_hex(unsigned int n)
 {
@@ -40,9 +40,9 @@ char	*ft_itoa_hex(unsigned long i, char ulc)
 	{
 		remainder = i % 16;
 		if (remainder < 10)
-			ptr[bytes] = i % 16 + '0';
+			ptr[bytes] = remainder + '0';
 		else
-			ptr[bytes] = i % 16 + ulc;
+			ptr[bytes] = remainder - 10 + ulc;
 		bytes--;
 		i /= 16;
 	}
@@ -78,28 +78,4 @@ char	*ft_itoa_ui(unsigned int i)
 		i /= 10;
 	}
 	return (ptr);
-}
-
-char	*chr_to_str(int c)
-{
-	char	*ptr;
-
-	ptr = (char *)malloc(sizeof(char) * 2);
-	if (!ptr)
-		return (0);
-	ptr[0] = (char)c;
-	ptr [1] = '\0';
-	return (ptr);
-}
-
-void	ft_charzero(void *s, unsigned long n)
-{
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *)s;
-	while (n != 0)
-	{
-		n--;
-		ptr[n] = '0';
-	}
 }
