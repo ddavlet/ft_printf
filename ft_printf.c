@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:25:39 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/12/01 15:37:20 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:41:21 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 char	*ft_print_param(char format, va_list argv, unsigned int *params)
 {
-	//test for NULLS arg
 	if (format == 'i' || format == 'd')
 		return (int_prms_lgc(params, ft_itoa(va_arg(argv, int)), 1));
 	if (format == 's')
@@ -27,7 +26,7 @@ char	*ft_print_param(char format, va_list argv, unsigned int *params)
 	else if (format == 'c')
 		return (int_prms_lgc(params, chr_to_str(va_arg(argv, int)), 0));
 	else if (format == 'p')
-		return (ft_print_void(va_arg(argv, unsigned long), params));
+		return (ft_print_void(va_arg(argv, size_t), params));
 	else if (format == 'x')
 		return (int_prms_lgc(params,
 				ft_itoa_hex(va_arg(argv, unsigned int), 'a'), 1));
@@ -102,8 +101,7 @@ int	ft_printf(const char *txt, ...)
 			i += ft_join_txt(&txt[i], &to_print);
 	}
 	va_end(argv);
-	ft_putstr_fd(to_print, 1);
-	count = ft_strlen(to_print);
+	count = ft_putstr(to_print);
 	free (to_print);
 	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:36 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/12/01 14:02:41 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:14:31 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ void			write_int_param(const char *txt, unsigned int *params_set);
 char			ft_params(const char *txt, char *set);
 
 unsigned int	*initialize_int(unsigned int *ptr, int i);
+
+int				ft_putstr(char *s);
 
 #endif

@@ -6,19 +6,28 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:27:08 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/12/01 15:55:00 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:50:06 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_print_void(unsigned long num, unsigned int *params)
+char	*ft_print_void(size_t num, unsigned int *params)
 {
+	char	*ptr;
+	char	*tmp;
+
 	if (!num)
-		return (ft_strdup("(nil)"));
-	else
 		return (int_prms_lgc(params,
-				ft_itoa_hex(num, 'a'), 0));
+				ft_strdup("(nil)"), 0));
+	else
+	{
+		ptr = ft_strdup("0x");
+		tmp = ft_itoa_hex(num, 'a');
+		ptr = ft_strjoin(ptr, tmp);
+		free(tmp);
+		return (int_prms_lgc(params, ptr, 0));
+	}
 }
 
 char	*return_add_toend(unsigned int *params, char *arg, char *temp)
@@ -67,7 +76,7 @@ char	*int_prms_lgc(unsigned int	*params, char *arg, int format)
 	char	*temp;
 
 	if (!arg)
-		return (0);
+		arg = ft_strdup("(null)");
 	if (ft_strlen(arg) < params[0])
 	{
 		temp = (char *)malloc(sizeof(char) * (params[0] + 1));

@@ -6,15 +6,15 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:22:47 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/12/01 14:10:55 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:42:25 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_counter_hex(unsigned int n)
+int	ft_counter_hex(size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 1;
 	if (n >= 16)
@@ -22,11 +22,11 @@ int	ft_counter_hex(unsigned int n)
 	return (i);
 }
 
-char	*ft_itoa_hex(unsigned long i, char ulc)
+char	*ft_itoa_hex(size_t i, char ulc)
 {
 	char			*ptr;
 	int				bytes;
-	unsigned long	remainder;
+	size_t			remainder;
 
 
 	bytes = ft_counter_hex(i);
