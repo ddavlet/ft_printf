@@ -22,9 +22,9 @@ $(LIBFT) :
 $(NAME): $(OBJ) $(HEADERS)
 	$(AR) $(NAME) $(OBJ)
 
-bonus: $(OBJ) $(OBJ_BONUS) $(LIBFT) $(HEADERS_BONUS)
-	cp $(LIBFT) $(NAME)
-	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
+# bonus: $(OBJ) $(OBJ_BONUS) $(LIBFT) $(HEADERS_BONUS)
+# 	cp $(LIBFT) $(NAME)
+# 	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
 
 
 %.o: %.c ft_printf.h
