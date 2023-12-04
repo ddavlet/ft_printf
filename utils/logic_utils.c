@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:27:08 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/12/01 18:50:06 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/12/04 10:31:50 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ char	*return_add_tobegin(unsigned int	*params, char *arg, char *temp)
 	free(arg);
 	return (temp);
 }
-
+// zero minus dot
 char	*int_prms_lgc(unsigned int	*params, char *arg, int format)
 {
 	char	*temp;
 
 	if (!arg)
 		arg = ft_strdup("(null)");
-	if (ft_strlen(arg) < params[0])
+	if (ft_strlen(arg) < params[0] && format != 2)
 	{
 		temp = (char *)malloc(sizeof(char) * (params[0] + 1));
 		if (!temp)
@@ -89,6 +89,8 @@ char	*int_prms_lgc(unsigned int	*params, char *arg, int format)
 			return (return_add_toend(params, arg, temp));
 		else
 			return (return_add_tobegin(params, arg, temp));
+		// else
+		// 	free(temp);
 	}
 	return (arg);
 }

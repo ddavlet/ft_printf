@@ -8,8 +8,8 @@ int	main()
 	// char *ptr;
 
 	// ptr = malloc (2);
-	printf ("-%i\n", printf(" %020d %020d ", 50, 2));
-	// printf ("-%i\n", ft_printf(" %020d %020d ", 50, 2));
+	printf ("-%i\n", printf("%.s\n", (char *)NULL));
+	// printf ("-%i\n", ft_printf("%.s\n", (char *)NULL));
 
 	// printf ("-%i", printf ("%c", 0));
 

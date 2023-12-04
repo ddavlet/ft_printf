@@ -6,7 +6,7 @@
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:25:39 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/12/01 18:41:21 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/12/04 10:09:17 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_print_param(char format, va_list argv, unsigned int *params)
 		return (int_prms_lgc(params,
 				ft_itoa_ui(va_arg(argv, unsigned int)), 1));
 	else if (format == '\%')
-		return (int_prms_lgc(params, chr_to_str('\%'), 0));
+		return (int_prms_lgc(params, chr_to_str('\%'), 2));
 	else if (format == 'c')
 		return (int_prms_lgc(params, chr_to_str(va_arg(argv, int)), 0));
 	else if (format == 'p')
