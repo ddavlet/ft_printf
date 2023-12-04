@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   itoa_utils.c                                       :+:      :+:    :+:   */
+/*   itoa_utils_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:22:47 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/12/01 18:42:25 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:31:04 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../ft_printf_bonus.h"
 
 int	ft_counter_hex(size_t n)
 {
@@ -27,7 +27,6 @@ char	*ft_itoa_hex(size_t i, char ulc)
 	char			*ptr;
 	int				bytes;
 	size_t			remainder;
-
 
 	bytes = ft_counter_hex(i);
 	ptr = (char *)malloc((bytes + 1) * sizeof(char));

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_utils.c                                      :+:      :+:    :+:   */
+/*   bonus_utils_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:27:22 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/12/01 18:17:07 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:31:01 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../ft_printf_bonus.h"
 
 char	*chr_to_str(int c)
 {
@@ -77,4 +77,22 @@ int	ft_putstr(char *s)
 	}
 	ft_putstr_fd(s, 1);
 	return (ft_strlen(s));
+}
+
+char	*str_prms_lgc(unsigned int	*params, char *arg, int format)
+{
+	char	*temp;
+
+	if (ft_strlen(arg) >= params[4] && params[3] == 1)
+	{
+		if (!arg)
+			arg = ft_substr("(null)", 0, params[4]);
+		else
+		{
+			temp = ft_substr(arg, 0, params[4]);
+			free (arg);
+			arg = temp;
+		}
+	}
+	return (int_prms_lgc(params, arg, format));
 }

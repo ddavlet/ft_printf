@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   params_utils.c                                     :+:      :+:    :+:   */
+/*   params_utilsbonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:28:25 by ddavlety          #+#    #+#             */
-/*   Updated: 2023/12/01 13:28:34 by ddavlety         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:30:58 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../ft_printf_bonus.h"
 
-char	ft_params(const char *txt, char *set)
+const char	*ft_params(const char *txt, char *set, char specifier)
 {
 	int	i;
 	int	j;
 
 	j = 0;
-	while (txt[j])
+	while (txt[j] != specifier)
 	{
 		i = 0;
 		while (set[i])
 		{
 			if (set[i] == txt[j])
-				return (set[i]);
+				return (&txt[j]);
 			i++;
 		}
 		j++;
@@ -32,26 +32,43 @@ char	ft_params(const char *txt, char *set)
 	return (0);
 }
 
-void	write_int_param(const char *txt, unsigned int *params_set)
+void	write_int_param(const char *txt,
+			unsigned int *params_set, int index, char specifier)
 {
 	int		i;
+	int		j;
 	char	*ptr;
 
 	i = 0;
-	while (ft_isdigit(txt[i]))
+	j = 0;
+	while (txt[i] && txt[i] != specifier)
+	{
+		if (ft_isdigit(txt[i]))
+		{
+			j = i;
+			while (ft_isdigit(txt[i]) && txt[i] != specifier)
+				i++;
+			break ;
+		}
 		i++;
-	ptr = ft_substr(txt, 0, i);
-	if (params_set[0] == 0)
-		params_set[0] = ft_atoi(ptr);
+	}
+	ptr = ft_substr(&txt[j], 0, i - j);
+	if (params_set[index] == 0)
+		params_set[index] = ft_atoi(ptr);
 	free (ptr);
 }
 
-void	write_param(char param, unsigned int *params_set)
+void	write_param(const char *param, unsigned int *params_set, char specifier)
 {
-	if (param == '0')
+	const char	*temp;
+
+	if (*param == '0')
 		params_set[1] = 1;
-	else if (param == '-')
+	else if (*param == '-')
 		params_set[2] = 1;
-	else if (param == '.')
+	else if (*param == '.')
 		params_set[3] = 1;
+	temp = ft_params(param, "123456789", specifier);
+	if (temp)
+		write_int_param(temp, params_set, 4, specifier);
 }
